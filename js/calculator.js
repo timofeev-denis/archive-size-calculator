@@ -1,6 +1,13 @@
 /**
 Archive size calculator
 */
+(function($) {
+	$(document).ready(function(){
+		console.log($('.ASCalculator').text());		
+	}) 
+	
+}(jQuery));
+
 
 class ArchiveSizeCalculator {
 	toString() {
