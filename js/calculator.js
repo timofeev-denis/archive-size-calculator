@@ -2,9 +2,29 @@
 Archive size calculator
 */
 (function($) {
+	
+	var round2DP = function(size) {
+		return Math.round((size + 0.00001) * 100) / 100;
+	};
+	
 	$(document).ready(function(){
-		console.log($('.ASCalculator').text());		
-	}) 
+		
+		var calcContainer = document.createElement("div");
+		
+		var resolutionsElement = $("#ASCResolutions");
+		var camerasElement = $("#ASCCameras");
+		var daysElement = $("#ASCDays");
+		var fpsElement = $("#ASCFps");
+		var resultElement = $("#ASCResult");
+		var calculate = function() {
+			var archiveSize = resolutionsElement.val() * camerasElement.val() * daysElement.val() * fpsElement.val();
+			//console.log(archiveSize);
+			resultElement.text(round2DP(archiveSize) + " Gb");
+		};
+		
+		$(".asc-parameter").on("change input paste", calculate);
+		calculate();;
+	}); 
 	
 }(jQuery));
 

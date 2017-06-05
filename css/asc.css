@@ -1,0 +1,7 @@
+.asc-row {
+	clear: both;
+}
+.asc-row label,
+.asc-row input {
+	float: left;
+}
